@@ -226,176 +226,154 @@ ${messageId}
 });
 
 // =========================
-// TELEGRAM DELETE
+// TELEGRAM WEBHOOK DELETE
 // =========================
 
-let telegramOffset = 0;
-
-async function pollTelegram() {
+app.post("/telegram/webhook", async (req, res) => {
 
     try {
 
-        const response = await fetch(
-            `https://api.telegram.org/bot${process.env.BOT_TOKEN}/getUpdates?offset=${telegramOffset + 1}&timeout=25`
+        const update = req.body;
+
+        console.log(
+            "📩 Telegram webhook update keldi"
         );
 
-        const data = await response.json();
+        const message = update.message;
 
-        if (!data.ok) {
-
-            console.error(
-                "❌ Telegram polling xatosi:",
-                data
-            );
-
-            setTimeout(
-                pollTelegram,
-                5000
-            );
-
-            return;
+        // Message yoki text bo'lmasa
+        if (
+            !message ||
+            !message.text
+        ) {
+            return res.sendStatus(200);
         }
 
-        for (const update of data.result) {
+        // Faqat /delete
+        if (
+            message.text.trim() !== "/delete"
+        ) {
+            return res.sendStatus(200);
+        }
 
-            telegramOffset =
-                update.update_id;
+        // Faqat bizning CHAT_ID
+        if (
+            String(message.chat.id) !==
+            String(process.env.CHAT_ID)
+        ) {
+            console.log(
+                "⚠️ Noto'g'ri Telegram CHAT_ID"
+            );
 
-            const message =
-                update.message;
+            return res.sendStatus(200);
+        }
 
-            // Text bo'lmasa o'tkazib yuborish
-            if (
-                !message ||
-                !message.text
-            ) {
-                continue;
-            }
+        // /delete reply bo'lishi kerak
+        const repliedMessage =
+            message.reply_to_message;
 
-            // Faqat /delete
-            if (
-                message.text.trim() !== "/delete"
-            ) {
-                continue;
-            }
-
-            // Faqat bizning CHAT_ID
-            if (
-                String(message.chat.id) !==
-                String(process.env.CHAT_ID)
-            ) {
-                continue;
-            }
-
-            // /delete reply bo'lishi kerak
-            const repliedMessage =
-                message.reply_to_message;
-
-            if (!repliedMessage) {
-
-                console.log(
-                    "⚠️ /delete uchun Telegram xabariga Reply qilish kerak."
-                );
-
-                continue;
-            }
-
-            // Reply qilingan Telegram xabari
-            const repliedText =
-                repliedMessage.text || "";
-
-            // ID ni topish
-            const idMatch =
-                repliedText.match(
-                    /🆔 ID:\s*(\S+)/
-                );
-
-            if (!idMatch) {
-
-                console.log(
-                    "⚠️ Bu Telegram xabarida ID topilmadi."
-                );
-
-                continue;
-            }
-
-            const messageId =
-                idMatch[1];
+        if (!repliedMessage) {
 
             console.log(
-                "🗑️ O‘chiriladigan message ID:",
+                "⚠️ /delete uchun Telegram xabariga Reply qilish kerak."
+            );
+
+            return res.sendStatus(200);
+        }
+
+        // Reply qilingan Telegram xabari
+        const repliedText =
+            repliedMessage.text || "";
+
+        // ID ni topish
+        const idMatch =
+            repliedText.match(
+                /🆔 ID:\s*(\S+)/
+            );
+
+        if (!idMatch) {
+
+            console.log(
+                "⚠️ Bu Telegram xabarida ID topilmadi."
+            );
+
+            return res.sendStatus(200);
+        }
+
+        const messageId =
+            idMatch[1];
+
+        console.log(
+            "🗑️ O‘chiriladigan message ID:",
+            messageId
+        );
+
+        // =========================
+        // DATABASE TEKSHIRISH
+        // =========================
+
+        const checkResult =
+            await pool.query(
+                `
+                SELECT id, name, message
+                FROM messages
+                WHERE id = $1
+                `,
+                [messageId]
+            );
+
+        console.log(
+            "🔎 DATABASE'DAN TOPILDI:",
+            checkResult.rows
+        );
+
+        // =========================
+        // DELETE
+        // =========================
+
+        const deleteResult =
+            await pool.query(
+                `
+                DELETE FROM messages
+                WHERE id = $1
+                RETURNING id
+                `,
+                [messageId]
+            );
+
+        // =========================
+        // RESULT
+        // =========================
+
+        if (
+            deleteResult.rowCount > 0
+        ) {
+
+            console.log(
+                "✅ Message PostgreSQL'dan o‘chirildi:",
                 messageId
             );
 
-            // =========================
-            // DATABASE TEKSHIRISH
-            // =========================
-
-            const checkResult =
-                await pool.query(
-                    `
-                    SELECT id, name, message
-                    FROM messages
-                    WHERE id = $1
-                    `,
-                    [messageId]
-                );
+        } else {
 
             console.log(
-                "🔎 DATABASE'DAN TOPILDI:",
-                checkResult.rows
+                "⚠️ Bunday message ID PostgreSQL'da topilmadi:",
+                messageId
             );
-
-            // =========================
-            // DELETE
-            // =========================
-
-            const deleteResult =
-                await pool.query(
-                    `
-                    DELETE FROM messages
-                    WHERE id = $1
-                    RETURNING id
-                    `,
-                    [messageId]
-                );
-
-            // =========================
-            // RESULT
-            // =========================
-
-            if (
-                deleteResult.rowCount > 0
-            ) {
-
-                console.log(
-                    "✅ Message PostgreSQL'dan o‘chirildi:",
-                    messageId
-                );
-
-            } else {
-
-                console.log(
-                    "⚠️ Bunday message ID PostgreSQL'da topilmadi:",
-                    messageId
-                );
-            }
         }
+
+        return res.sendStatus(200);
 
     } catch (error) {
 
         console.error(
-            "❌ Telegram polling xatosi:",
+            "❌ Telegram webhook xatosi:",
             error
         );
-    }
 
-    // Keyingi tekshiruv
-    setTimeout(
-        pollTelegram,
-        1000
-    );
-}
+        return res.sendStatus(500);
+    }
+});
 
 // =========================
 // START SERVER
@@ -408,16 +386,58 @@ async function startServer() {
         // Avval DB
         await initDatabase();
 
-        // Keyin Telegram polling
-        pollTelegram();
+        // =========================
+        // WEB SERVER
+        // =========================
 
-        // Keyin web server
         app.listen(
             PORT,
-            () => {
+            async () => {
+
                 console.log(
                     `Wedding invitation server: http://localhost:${PORT}`
                 );
+
+                // =========================
+                // TELEGRAM WEBHOOK
+                // =========================
+
+                const webhookUrl =
+                    "https://toytaklifnoma.onrender.com/telegram/webhook";
+
+                try {
+
+                    const response = await fetch(
+                        `https://api.telegram.org/bot${process.env.BOT_TOKEN}/setWebhook`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                url: webhookUrl,
+                                drop_pending_updates: true
+                            })
+                        }
+                    );
+
+                    const data =
+                        await response.json();
+
+                    console.log(
+                        "🤖 Telegram webhook:",
+                        data
+                    );
+
+                } catch (error) {
+
+                    console.error(
+                        "❌ Telegram webhook sozlash xatosi:",
+                        error
+                    );
+                }
             }
         );
 
