@@ -1,0 +1,2196 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Husniddin & Musharraf</title>
+
+    <style>
+        /* 3-SAHIFA — MEHMONLARGA MUROJAAT */
+
+.welcome-page {
+    position: relative;
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(15, 15, 15, 0.94),
+            rgba(15, 15, 15, 0.97)
+        ),
+        url("images/couple.jpg") center / cover no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 25px;
+    color: white;
+}
+
+.welcome-content {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.welcome-ornament {
+    color: #d8c080;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+}
+
+.welcome-title {
+    color: #d8c080;
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 35px;
+}
+
+.welcome-text {
+    max-width: 400px;
+    margin: 0 auto 22px;
+    color: #e5e5e5;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.welcome-line {
+    color: #d8c080;
+    font-size: 28px;
+    margin: 35px 0;
+}
+
+.welcome-honor {
+    color: #999;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.welcome-names {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: normal;
+    line-height: 1.3;
+    letter-spacing: 2px;
+}
+
+.welcome-names span {
+    color: #d8c080;
+}
+
+.welcome-ornament.bottom {
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .invitation {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    min-height: 100vh;
+    overflow: visible;
+    color: white;
+    background: #111;
+}
+
+        /* Juftlik rasmi */
+      .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.88)
+        ),
+        url("images/couple.jpg") center 45% / cover no-repeat;
+
+    filter: grayscale(100%);
+}
+
+        /* Til tugmalari */
+        .languages {
+            position: absolute;
+            top: 30px;
+            left: 25px;
+            display: flex;
+            gap: 10px;
+            z-index: 5;
+        }
+
+        .language {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .language.active {
+            background: #d8c080;
+            color: #111;
+        }
+
+        /* Asosiy kontent */
+        .content {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            padding: 145px 30px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .ornament {
+            color: #d8c080;
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        .small-title {
+            font-size: 12px;
+            letter-spacing: 5px;
+            color: #ddd;
+            margin-bottom: 28px;
+        }
+
+        .names {
+            font-family: Georgia, serif;
+            font-size: clamp(42px, 10vw, 68px);
+            font-weight: normal;
+            line-height: 1.05;
+            letter-spacing: 2px;
+        }
+
+        .names span {
+            color: #d8c080;
+        }
+
+        .date {
+            margin-top: 45px;
+            color: #d8c080;
+            font-size: 18px;
+            letter-spacing: 7px;
+        }
+
+        .arabic {
+            margin-top: 35px;
+            color: #d8c080;
+            font-family: Georgia, serif;
+            font-size: 28px;
+        }
+
+        .quote {
+            margin-top: 15px;
+            max-width: 400px;
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #eee;
+        }
+
+        .source {
+            margin-top: 8px;
+            color: #888;
+            font-size: 12px;
+        }
+
+        /* Ochish tugmasi */
+        .open-button {
+    position: relative;
+    margin-top: 55px;
+    width: min(430px, 100%);
+    height: 72px;
+    padding: 6px;
+    border: 1px solid #8d805d;
+    border-radius: 45px;
+    background: rgba(20,20,20,0.75);
+    box-shadow: 0 0 0 8px rgba(255,255,255,0.03);
+    display: flex;
+    align-items: center;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+.open-button:active {
+    cursor: grabbing;
+}
+
+.lock {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #ead59c;
+    color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    z-index: 2;
+    transition: transform 0.15s ease;
+}
+
+.open-text {
+    width: 100%;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 4px;    
+    text-align: center;
+    pointer-events: none;
+}
+
+.arrow {
+    position: absolute;
+    right: 20px;
+    font-size: 25px;
+    color: #ddd;
+    pointer-events: none;
+}
+
+        .lock {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #ead59c;
+            color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        .open-text {
+            flex: 1;
+            color: white;
+            font-size: 14px;
+            letter-spacing: 6px;
+            text-align: center;
+        }
+
+        .arrow {
+            font-size: 25px;
+            margin-right: 20px;
+            color: #ddd;
+        }
+
+        /* PAGELAR ORASIDAGI AJRATUVCHI */
+        .content,
+        .page-two,
+        .welcome-page,
+        .date-page,
+        .schedule-page {
+            border-bottom: 8px solid #e8dfd0;
+        }
+
+        /* Musiqa tugmasi */
+        .music {
+            position: absolute;
+            right: 25px;
+            bottom: 35px;
+            z-index: 5;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: none;
+            background: #d8c080;
+            color: #111;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Animatsiya */
+        .content > * {
+            animation: fadeUp 1.2s ease both;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .names {
+                font-size: 42px;
+            }
+
+            .date {
+                font-size: 15px;
+                letter-spacing: 5px;
+            }
+        }
+        /* 2-SAHIFA */
+
+.page-two {
+    position: relative;
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(15, 15, 15, 0.92),
+            rgba(15, 15, 15, 0.96)
+        ),
+        url("images/couple.jpg") center / cover no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 25px;
+    color: white;
+}
+/* 2 va 3-sahifa orasidagi oq ajratuvchi */
+
+.page-two {
+    border-bottom: 8px solid #faf7f0;
+}
+
+.welcome-page {
+    border-top: 8px solid #faf7f0;
+}
+
+.page-two-content {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.section-title {
+    color: #d8c080;
+    font-size: 13px;
+    letter-spacing: 5px;
+}
+
+.section-line {
+    color: #d8c080;
+    font-size: 25px;
+    margin: 20px 0;
+}
+
+.page-two h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.page-two h2 span {
+    color: #d8c080;
+}
+
+.invitation-text {
+    margin: 30px auto;
+    max-width: 390px;
+    color: #ddd;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.info-box {
+    margin-top: 35px;
+    border-top: 1px solid rgba(216,192,128,0.5);
+    border-bottom: 1px solid rgba(216,192,128,0.5);
+    padding: 10px 0;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 18px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.info:last-child {
+    border-bottom: none;
+}
+
+.icon {
+    width: 45px;
+    height: 45px;
+    margin-right: 18px;
+    border-radius: 50%;
+    background: #d8c080;
+    color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.info small {
+    display: block;
+    color: #999;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.info strong {
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.map-button {
+    margin-top: 35px;
+    padding: 15px 30px;
+    border: 1px solid #d8c080;
+    border-radius: 30px;
+    background: transparent;
+    color: #d8c080;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+/* 4-SAHIFA — SANA VA COUNTDOWN */
+
+.date-page {
+    position: relative;
+    min-height: 100vh;
+    background: #f8f7f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 25px;
+}
+
+.date-content {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.date-title {
+    color: #9d8b61;
+    font-size: 13px;
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+.wedding-date {
+    font-family: Georgia, serif;
+    color: #9d8050;
+    font-size: 42px;
+    font-weight: normal;
+    letter-spacing: 5px;
+}
+
+.date-line {
+    color: #cdbb91;
+    font-size: 22px;
+    margin: 20px 0 30px;
+}
+
+.countdown-title {
+    color: #999;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.count-box {
+    background: white;
+    border-radius: 18px;
+    padding: 18px 5px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+.count-box strong {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: normal;
+    color: #333;
+}
+
+.count-box small {
+    display: block;
+    margin-top: 6px;
+    color: #aaa;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.star {
+    color: #c8aa6b;
+    font-size: 25px;
+    margin: 38px 0 20px;
+}
+
+.calendar-title {
+    color: #555;
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+.calendar {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.weekdays,
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.weekdays {
+    margin-bottom: 15px;
+}
+
+.weekdays span {
+    color: #aaa;
+    font-size: 9px;
+}
+
+.calendar-days {
+    row-gap: 15px;
+}
+
+.calendar-days span {
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    color: #555;
+}
+
+.calendar-days .wedding-day {
+    border: 1px solid #c8aa6b;
+    border-radius: 50%;
+    color: #9d8050;
+}
+/* 5-SAHIFA — KUN TARTIBI */
+
+.schedule-page {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(218, 194, 150, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(218, 194, 150, 0.14),
+            transparent 30%
+        ),
+        #faf7f0;
+
+    color: #4a4035;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 80px 25px;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.schedule-content {
+    width: 100%;
+    max-width: 500px;
+}
+
+.schedule-title {
+    text-align: center;
+    color: #9b7a3c;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 7px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.schedule-item {
+    display: flex;
+    align-items: center;
+    padding: 22px 10px;
+    border-bottom: 1px solid rgba(155,122,60,0.25);
+}
+
+.schedule-icon {
+    width: 52px;
+    height: 52px;
+    border: 1px solid #d8c080;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    margin-right: 22px;
+    flex-shrink: 0;
+}
+
+.schedule-info strong {
+    display: block;
+    color: #9b7a3c;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.schedule-info small {
+    color: #aaa;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.schedule-heart {
+    text-align: center;
+   color: #665d52;
+    font-size: 25px;
+    margin-top: 35px;
+}
+/* 6-SAHIFA — BIZNING XOTIRALARIMIZ */
+
+.gallery-page {
+    min-height: 100vh;
+    background: #faf7f0;
+    color: #4a4035;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-content {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+}
+
+.gallery-title {
+    color: #9b7a3c;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 6px;
+    margin-bottom: 15px;
+}
+
+.gallery-line {
+    color: #c9a85c;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.gallery-text {
+    color: #665d52;
+    font-size: 13px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    max-width: 420px;
+    margin: 0 auto 35px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.gallery-photo {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 1px solid rgba(155,122,60,0.45);
+    padding: 5px;
+    background: #fffdf8;
+}
+
+.gallery-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.gallery-photo img[src*="wedding_flowers"] {
+    object-fit: contain;
+    background: #fffdf8;
+}
+
+.gallery-heart {
+    color: #c9a85c;
+    font-size: 25px;
+    margin-top: 30px;
+}
+/* 7-SAHIFA — TO‘YXONA */
+
+.venue-page {
+    min-height: 100vh;
+   background: #faf7f0;
+    color: #3d352b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 20px;
+    box-sizing: border-box;
+}
+
+.venue-content {
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+}
+
+/* Tillar */
+
+.venue-languages {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.venue-languages span {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eee9df;
+    color: #7c7368;
+    font-size: 11px;
+}
+
+.venue-languages .active {
+    background: #d8bd78;
+    color: #17130d;
+}
+
+/* Bezak */
+
+.venue-ornament {
+    color: #d8bd78;
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+/* Sarlavha */
+
+.venue-title {
+    color: #e4c982;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.venue-line {
+    color: #d8bd78;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+/* Rasmlar */
+
+.venue-photo {
+    width: 100%;
+    height: 270px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid rgba(216,189,120,0.55);
+    padding: 5px;
+    box-sizing: border-box;
+    background: #171513;
+}
+
+.venue-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}
+
+/* To‘yxona nomi */
+
+.venue-name {
+    margin-top: 30px;
+    color: #dfc27c;
+    font-family: Georgia, serif;
+    font-size: 43px;
+    letter-spacing: 5px;
+}
+
+.venue-name span {
+    display: block;
+    font-size: 30px;
+    letter-spacing: 9px;
+    margin-top: 4px;
+}
+
+.venue-subtitle {
+   color: #b58a3a;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-style: italic;
+    margin-top: 3px;
+}
+
+/* Manzil */
+
+.venue-address {
+    margin-top: 30px;
+    color: #756b60;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.venue-pin {
+    color: #dfc27c;
+    font-size: 20px;
+    margin-right: 7px;
+}
+
+@media (max-width: 480px) {
+
+    .venue-page {
+        padding: 55px 18px;
+    }
+
+    .venue-title {
+        font-size: 32px;
+    }
+
+    .venue-photo {
+        height: 235px;
+    }
+
+    .venue-name {
+        font-size: 35px;
+    }
+
+    .venue-name span {
+        font-size: 25px;
+    }
+}
+/* SAHIFALAR ORASINI AJRATISH */
+
+.page-two,
+.welcome-page,
+.date-page,
+.schedule-page,
+.gallery-page,
+.venue-page {
+    position: relative;
+    border-bottom: 8px solid #1b1917;
+    box-sizing: border-box;
+}
+/* 8-SAHIFA — RSVP */
+
+.rsvp-page {
+    min-height: 100vh;
+    background: #faf7f0;
+    color: #4a4035;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 20px;
+    box-sizing: border-box;
+}
+
+.rsvp-content {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Tillar */
+
+.rsvp-languages {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.rsvp-languages span {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #eee9df;
+    color: #81766a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+}
+
+.rsvp-languages .active {
+    background: #d8bd78;
+    color: #3d3020;
+}
+
+/* Bezak */
+
+.rsvp-ornament {
+    color: #b58a3a;
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-bottom: 22px;
+}
+
+/* Sarlavha */
+
+.rsvp-title {
+    color: #9b7533;
+    font-family: Georgia, serif;
+    font-size: 35px;
+    line-height: 1.25;
+    font-weight: normal;
+    margin: 0;
+}
+
+.rsvp-subtitle {
+    margin-top: 18px;
+    color: #9a9186;
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+.rsvp-heart {
+    color: #caa95f;
+    font-size: 27px;
+    margin: 20px 0 30px;
+}
+
+/* Forma */
+
+.rsvp-form {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 30px 26px;
+    text-align: left;
+    box-shadow: 0 10px 35px rgba(80, 60, 30, 0.08);
+    border: 1px solid rgba(190, 160, 100, 0.18);
+}
+
+.rsvp-form label {
+    display: block;
+    color: #51483e;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 9px;
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #e5ded3;
+    border-radius: 13px;
+    background: #fffdfb;
+    padding: 14px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #40372e;
+    outline: none;
+}
+
+.rsvp-form input[type="text"]::placeholder,
+.rsvp-form textarea::placeholder {
+    color: #aaa39b;
+}
+
+.rsvp-form input[type="text"]:focus,
+.rsvp-form textarea:focus {
+    border-color: #d1b36c;
+}
+
+.attendance-label {
+    margin-top: 25px;
+}
+
+.radio-option {
+    display: flex !important;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 14px !important;
+    color: #5e564e !important;
+    font-size: 14px !important;
+    cursor: pointer;
+}
+
+.radio-option input {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #c9b47d;
+    border-radius: 50%;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.radio-option input:checked {
+    box-shadow: inset 0 0 0 4px #fff;
+    background: #c9a85e;
+}
+
+.message-label {
+    margin-top: 25px;
+}
+
+.rsvp-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.rsvp-button {
+    width: 100%;
+    border: none;
+    border-radius: 13px;
+    background: #d0af62;
+    color: white;
+    padding: 14px;
+    margin-top: 18px;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.rsvp-button:hover {
+    background: #bd994d;
+}
+
+@media (max-width: 480px) {
+
+    .rsvp-page {
+        padding: 55px 18px;
+    }
+
+    .rsvp-title {
+        font-size: 30px;
+    }
+
+    .rsvp-form {
+        padding: 25px 20px;
+    }
+}
+/* RSVP — PREMIUM DIZAYN */
+
+.rsvp-form {
+    position: relative;
+    background:
+        radial-gradient(circle at top right,
+            rgba(216,189,120,0.10),
+            transparent 35%),
+        #fffdfa;
+    border: 1px solid rgba(190,160,100,0.28);
+    border-radius: 28px;
+    padding: 34px 30px 30px;
+    box-shadow:
+        0 18px 45px rgba(75, 55, 25, 0.10),
+        inset 0 0 0 1px rgba(255,255,255,0.8);
+}
+
+/* Ichki nozik bezak */
+
+.rsvp-form::before {
+    content: "♡";
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    color: #d5b66d;
+    font-size: 18px;
+}
+
+/* Label */
+
+.rsvp-form label {
+    color: #4c4237;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* Input */
+
+.rsvp-form input[type="text"],
+.rsvp-form textarea {
+    background: #fff;
+    border: 1px solid #e2d6c2;
+    border-radius: 15px;
+    box-shadow: inset 0 2px 8px rgba(100,70,30,0.025);
+    transition: all 0.25s ease;
+}
+
+.rsvp-form input[type="text"]:focus,
+.rsvp-form textarea:focus {
+    border-color: #cba85f;
+    box-shadow:
+        0 0 0 3px rgba(203,168,95,0.10),
+        inset 0 2px 8px rgba(100,70,30,0.025);
+}
+
+/* Qatnashish qismi */
+
+.attendance-label {
+    color: #80632e !important;
+    font-family: Georgia, serif !important;
+    font-size: 16px !important;
+    margin-bottom: 17px !important;
+}
+
+/* Radio variantlar */
+
+.radio-option {
+    padding: 9px 12px;
+    border-radius: 12px;
+    transition: 0.2s ease;
+}
+
+.radio-option:hover {
+    background: #faf5e9;
+}
+
+.radio-option input {
+    width: 19px;
+    height: 19px;
+    border: 1.5px solid #c9aa68;
+    background: #fff;
+}
+
+.radio-option input:checked {
+    background: #c9a85e;
+    box-shadow: inset 0 0 0 4px #fff;
+}
+
+/* Xabar */
+
+.message-label {
+    color: #80632e !important;
+    font-family: Georgia, serif !important;
+    font-size: 16px !important;
+}
+
+/* Yuborish tugmasi */
+
+.rsvp-button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #d9bd76,
+        #c9a657
+    );
+    border: 1px solid #c5a257;
+    border-radius: 15px;
+    padding: 15px;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    box-shadow:
+        0 7px 18px rgba(170,130,50,0.20);
+    transition: all 0.25s ease;
+}
+
+.rsvp-button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 22px rgba(170,130,50,0.28);
+}
+
+.rsvp-button:active {
+    transform: translateY(0);
+}
+/* =========================================
+   9-SAHIFA — MEHMONLAR TILAKLARI
+========================================= */
+
+.messages-page {
+    min-height: 100vh;
+    background: #faf7f0;
+    color: #3d352b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 20px;
+    box-sizing: border-box;
+}
+
+.messages-content {
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+}
+
+.messages-ornament {
+    color: #b58a3a;
+    font-size: 20px;
+    letter-spacing: 6px;
+    margin-bottom: 18px;
+}
+
+.messages-title {
+    font-family: Georgia, serif;
+    color: #9b7a3c;
+    font-size: 25px;
+    letter-spacing: 5px;
+    line-height: 1.4;
+}
+
+.messages-line {
+    color: #b58a3a;
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.messages-subtitle {
+    max-width: 400px;
+    margin: 0 auto 35px;
+    color: #7d7469;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.message-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e7dccb;
+    border-radius: 18px;
+    padding: 24px 22px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(80, 60, 30, 0.08);
+}
+
+.message-text {
+    color: #4a4238;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.message-name {
+    margin-top: 16px;
+    color: #9b7a3c;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.messages-heart {
+    margin-top: 35px;
+    color: #b58a3a;
+    font-size: 28px;
+}
+/* RSVP va MEHMONLAR TILAKLARI orasidagi ajratuvchi */
+
+.rsvp-page {
+    border-bottom: 8px solid #b8ad9d;
+}
+
+.messages-page {
+    border-top: 8px solid #b8ad9d;
+}
+    </style>
+</head>
+
+<body>
+    <audio id="weddingMusic" loop>
+    <source src="wedding_music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="invitation">
+
+    <div class="background"></div>
+
+    <!-- Tillar -->
+    <div class="languages">
+        <button class="language active">UZ</button>
+        <button class="language">RU</button>
+        <button class="language">EN</button>
+    </div>
+
+    <!-- Asosiy qism -->
+    <main class="content">
+
+        <div class="ornament">
+            ─── ♡ ───
+        </div>
+
+        <div class="small-title">
+            SIZGA TAKLIFNOMA KELDI
+        </div>
+
+        <h1 class="names">
+            HUSNIDDIN  <span>&amp;</span><br>
+            MUSHARRAF
+        </h1>
+
+        <div class="date">
+            08 • 11 • 2026
+        </div>
+
+        <div class="arabic">
+            وَأَلَّفَ بَيْنَ قُلُوبِنَا
+        </div>
+
+        <div class="quote">
+            “Va U ularning qalblarini sevgi ila birlashtirdi”
+        </div>
+
+        <div class="source">
+            Anfol surasi, 63
+        </div>
+
+        <button class="open-button" id="openButton">
+    <div class="lock" id="dragHandle">♧</div>
+
+    <div class="open-text">
+        O‘NGGA SURING
+    </div>
+
+    <div class="arrow">
+        →
+    </div>
+</button>
+
+    </main>
+<!-- 2-SAHIFA -->
+<section class="page-two" id="pageTwo">
+
+    <div class="page-two-content">
+
+        <div class="section-title">
+            BIZNING TO‘YIMIZ
+        </div>
+
+        <div class="section-line">♡</div>
+
+        <h2>
+            HUSNIDDIN
+            <span>&amp;</span>
+            MUSHARRAF
+        </h2>
+
+        <p class="invitation-text">
+            Hayotimizning eng baxtli kunida
+            Sizni aziz mehmonimiz sifatida
+            kutib qolamiz.
+        </p>
+
+        <div class="info-box">
+
+            <div class="info">
+                <div class="icon">♡</div>
+                <div>
+                    <small>SANA</small>
+                    <strong>08 NOYABR 2026</strong>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="icon">◷</div>
+                <div>
+                    <small>VAQT</small>
+                    <strong>19:00</strong>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="icon">⌖</div>
+                <div>
+                    <small>MANZIL</small>
+                    <strong>OQSAROY PREMIUM</strong>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="map-button" onclick="openMap()">
+    📍 XARITADA KO‘RISH
+        </button>
+
+    </div>
+
+</section>
+<!-- 3-SAHIFA — MEHMONLARGA MUROJAAT -->
+<section class="welcome-page">
+
+    <div class="welcome-content">
+
+        <div class="welcome-ornament">─── ♡ ───</div>
+
+        <div class="welcome-title">
+            AZIZ MEHMONLAR!
+        </div>
+
+        <p class="welcome-text">
+            Sizni hayotimizdagi eng quvonchli kunimiz —
+            nikoh to‘yimiz munosabati bilan
+            chin qalbimizdan taklif qilamiz.
+        </p>
+
+        <p class="welcome-text">
+            Ushbu unutilmas kunimizni Siz bilan
+            birga nishonlashdan mamnun bo‘lamiz.
+        </p>
+
+        <div class="welcome-line">♡</div>
+
+        <div class="welcome-honor">
+            HURMAT BILAN
+        </div>
+
+        <h2 class="welcome-names">
+            HUSNIDDIN
+            <span>&amp;</span>
+            MUSHARRAF
+        </h2>
+
+        <div class="welcome-ornament bottom">
+            ─── ♡ ───
+        </div>
+
+    </div>
+
+</section>
+<!-- 4-SAHIFA — SANA VA COUNTDOWN -->
+
+<section class="date-page">
+
+    <div class="date-content">
+
+        <div class="date-title">
+            SANA
+        </div>
+
+        <h2 class="wedding-date">
+            08 • 11 • 2026
+        </h2>
+
+        <div class="date-line">
+            ─── ♡ ───
+        </div>
+
+        <div class="countdown-title">
+            TO‘YGACHA QOLGAN VAQT
+        </div>
+
+        <div class="countdown">
+
+            <div class="count-box">
+                <strong id="days">00</strong>
+                <small>KUN</small>
+            </div>
+
+            <div class="count-box">
+                <strong id="hours">00</strong>
+                <small>SOAT</small>
+            </div>
+
+            <div class="count-box">
+                <strong id="minutes">00</strong>
+                <small>DAQIQA</small>
+            </div>
+
+            <div class="count-box">
+                <strong id="seconds">00</strong>
+                <small>SONIYA</small>
+            </div>
+
+        </div>
+
+        <div class="star">✦</div>
+
+        <div class="calendar-title">
+            NOYABR 2026
+        </div>
+
+        <div class="calendar">
+
+            <div class="weekdays">
+                <span>DUSH</span>
+                <span>SESH</span>
+                <span>CHOR</span>
+                <span>PAY</span>
+                <span>JUM</span>
+                <span>SHAN</span>
+                <span>YAK</span>
+            </div>
+
+            <div class="calendar-days">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span class="wedding-day">8</span>
+                <span>9</span>
+                <span>10</span>
+                <span>11</span>
+                <span>12</span>
+                <span>13</span>
+                <span>14</span>
+                <span>15</span>
+                <span>16</span>
+                <span>17</span>
+                <span>18</span>
+                <span>19</span>
+                <span>20</span>
+                <span>21</span>
+                <span>22</span>
+                <span>23</span>
+                <span>24</span>
+                <span>25</span>
+                <span>26</span>
+                <span>27</span>
+                <span>28</span>
+                <span>29</span>
+                <span>30</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- 5-SAHIFA — KUN TARTIBI -->
+
+<section class="schedule-page">
+
+    <div class="schedule-content">
+
+        <div class="schedule-title">
+            KUN TARTIBI
+        </div>
+
+        <div class="schedule-item">
+
+            <div class="schedule-icon">
+                🍸
+            </div>
+
+            <div class="schedule-info">
+                <strong>18:00</strong>
+                <small>MEHMONLARNI KUTIB OLISH</small>
+            </div>
+
+        </div>
+
+        <div class="schedule-item">
+
+            <div class="schedule-icon">
+                💍
+            </div>
+
+            <div class="schedule-info">
+                <strong>19:00</strong>
+                <small>NIKOH MAROSIMI</small>
+            </div>
+
+        </div>
+
+        <div class="schedule-item">
+
+            <div class="schedule-icon">
+                🍽️
+            </div>
+
+            <div class="schedule-info">
+                <strong>20:00</strong>
+                <small>ZIYOFAT</small>
+            </div>
+
+        </div>
+
+        <div class="schedule-item">
+
+            <div class="schedule-icon">
+                ✨
+            </div>
+
+            <div class="schedule-info">
+                <strong>23:00</strong>
+                <small>KECHANING YAKUNI</small>
+            </div>
+
+        </div>
+
+        <div class="schedule-heart">
+            ♡
+        </div>
+
+    </div>
+
+</section>
+<!-- 6-SAHIFA — BIZNING XOTIRALARIMIZ -->
+<!-- 6-SAHIFA — BIZNING XOTIRALARIMIZ -->
+
+<section class="gallery-page">
+
+    <div class="gallery-content">
+
+        <div class="gallery-title">
+            BIZNING XOTIRALARIMIZ
+        </div>
+
+        <div class="gallery-line">
+            ─── ♡ ───
+        </div>
+
+        <p class="gallery-text">
+            Birga o‘tgan har bir lahzamiz
+            biz uchun unutilmas xotiradir.
+        </p>
+
+        <div class="gallery-grid">
+
+            <!-- 1-RASM -->
+            <div class="gallery-photo">
+                <img src="images/wedding_main.jpg"
+                     alt="Husniddin va Musharraf">
+            </div>
+
+            <!-- 2-RASM -->
+            <div class="gallery-photo">
+                <img src="images/wedding_memory_01.jpg"
+                     alt="Husniddin va Musharraf">
+            </div>
+
+            <!-- 3-RASM -->
+            <div class="gallery-photo">
+                <img src="images/wedding_memory_02.jpg"
+                     alt="Husniddin va Musharraf">
+            </div>
+
+            <!-- 4-RASM -->
+            <div class="gallery-photo">
+                <img src="images/wedding_flowers.jpg"
+                     alt="Gullar va sovg‘a">
+            </div>
+
+        </div>
+
+        <div class="gallery-heart">
+            ♡
+        </div>
+
+    </div>
+
+
+</section>
+<!-- 7-SAHIFA — TO‘YXONA -->
+
+<section class="venue-page">
+
+    <div class="venue-content">
+
+        <div class="venue-languages">
+            <span class="active">UZ</span>
+            <span>RU</span>
+            <span>EN</span>
+        </div>
+
+        <div class="venue-ornament">
+            ✦　❖　✦
+        </div>
+
+        <div class="venue-title">
+            To‘y xona
+        </div>
+
+        <div class="venue-line">
+            ─── ♡ ───
+        </div>
+
+        <div class="venue-photo">
+            <img src="images/venue-01.jpg" alt="Oqsaroy Premium">
+        </div>
+
+        <div class="venue-photo">
+            <img src="images/venue-02.jpg" alt="Oqsaroy Premium">
+        </div>
+
+        <div class="venue-name">
+            OQSAROY
+            <span>PREMIUM</span>
+        </div>
+
+        <div class="venue-subtitle">
+            To‘yxonasi
+        </div>
+
+        <div class="venue-address">
+            <span class="venue-pin">⌖</span>
+            Oqsaroy Premium
+        </div>
+
+    </div>
+
+</section>
+
+<!-- 8-SAHIFA — RSVP -->
+
+<section class="rsvp-page">
+
+    <div class="rsvp-content">
+
+        <div class="rsvp-languages">
+            <span class="active">UZ</span>
+            <span>RU</span>
+            <span>EN</span>
+        </div>
+
+        <div class="rsvp-ornament">
+            ✦ R.S.V.P. ✦
+        </div>
+
+        <h2 class="rsvp-title">
+            Iltimos, ishtirokingizni<br>
+            tasdiqlang
+        </h2>
+
+        <div class="rsvp-subtitle">
+            BIZ BILAN BO‘LING
+        </div>
+
+        <div class="rsvp-heart">
+            ♡
+        </div>
+
+        <div class="rsvp-form">
+
+            <label>
+                Mehmon Ismi
+            </label>
+
+            <input
+                type="text"
+                id="guestName"
+                placeholder="To‘liq ismingizni kiriting"
+            >
+
+            <label class="attendance-label">
+                Qatnashasizmi?
+            </label>
+
+            <label class="radio-option">
+                <input type="radio" name="attendance" value="alone">
+                <span>Ha, albatta boraman!</span>
+            </label>
+
+            <label class="radio-option">
+                <input type="radio" name="attendance" value="with_guest">
+                <span>Ha, mehmon bilan boraman</span>
+            </label>
+
+            <label class="radio-option">
+                <input type="radio" name="attendance" value="no">
+                <span>Afsus, kela olmayman</span>
+            </label>
+
+            <label class="radio-option">
+                <input type="radio" name="attendance" value="maybe">
+                <span>Hali aniq emas</span>
+            </label>
+
+            <label class="message-label">
+                Xabar
+            </label>
+
+            <textarea
+                id="guestMessage"
+                placeholder="Kuyov-kelin bilan xabar ulashing..."
+            ></textarea>
+
+            <button type="button" class="rsvp-button" onclick="sendRSVP()">
+                Javob yuborish
+            </button>
+
+        </div>
+
+    </div>
+
+</section>  
+    <!-- 9-SAHIFA — MEHMONLAR TILAKLARI -->
+
+<section class="messages-page">
+
+    <div class="messages-content">
+
+        <div class="messages-ornament">
+            ✦ ♡ ✦
+        </div>
+
+        <div class="messages-title">
+            MEHMONLAR TILAKLARI
+        </div>
+
+        <div class="messages-line">
+            ─── ♡ ───
+        </div>
+
+        <p class="messages-subtitle">
+            Biz bilan quvonchingizni baham ko‘rgan
+            barcha aziz mehmonlarimizga rahmat!
+        </p><!-- 9-SAHIFA — MEHMONLAR TILAKLARI -->
+
+
+        <div id="messagesList" class="messages-list">
+            <!-- Xabarlar shu yerda avtomatik chiqadi -->
+        </div>
+
+        <div class="messages-heart">
+            ♡
+        </div>
+
+    </div>
+
+</section>
+    <!-- Musiqa -->
+    <button class="music" onclick="toggleMusic()">
+        ▶
+    </button>
+
+</div>
+
+<script>
+
+const openButton = document.getElementById("openButton");
+const dragHandle = document.getElementById("dragHandle");
+
+let isDragging = false;
+let startX = 0;
+let currentX = 0;
+
+function startDrag(e) {
+    isDragging = true;
+    startX = e.clientX;
+    dragHandle.style.transition = "none";
+}
+
+function moveDrag(e) {
+    if (!isDragging) return;
+
+    currentX = e.clientX - startX;
+
+    const maxMove = openButton.offsetWidth - dragHandle.offsetWidth - 12;
+
+    if (currentX < 0) currentX = 0;
+    if (currentX > maxMove) currentX = maxMove;
+
+    dragHandle.style.transform = `translateX(${currentX}px)`;
+}
+
+function endDrag() {
+    if (!isDragging) return;
+
+    isDragging = false;
+
+    const maxMove = openButton.offsetWidth - dragHandle.offsetWidth - 12;
+
+    if (currentX >= maxMove * 0.8) {
+
+        dragHandle.style.transition = "transform 0.3s ease";
+        dragHandle.style.transform = `translateX(${maxMove}px)`;
+        const music = document.getElementById("weddingMusic");
+
+if (music) {
+    music.play().catch(() => {});
+}
+
+        setTimeout(() => {
+            document.getElementById("pageTwo").scrollIntoView({
+                behavior: "smooth"
+            });
+        }, 300);
+
+    } else {
+
+        dragHandle.style.transition = "transform 0.3s ease";
+        dragHandle.style.transform = "translateX(0)";
+    }
+
+    currentX = 0;
+}
+
+dragHandle.addEventListener("pointerdown", startDrag);
+document.addEventListener("pointermove", moveDrag);
+document.addEventListener("pointerup", endDrag);
+// COUNTDOWN
+
+const weddingDate = new Date("2026-11-08T19:00:00").getTime();
+
+function updateCountdown() {
+
+    const now = new Date().getTime();
+    const difference = weddingDate - now;
+
+    if (difference <= 0) {
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        return;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+    );
+    const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+    );
+    const seconds = Math.floor(
+        (difference / 1000) % 60
+    );
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+function openMap() {
+    window.open("https://maps.app.goo.gl/8tvZWgZtx8rwMZBi7", "_blank");
+}
+
+function toggleMusic() {
+    const music = document.getElementById("weddingMusic");
+
+    if (!music) return;
+
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+async function sendRSVP() {
+    const guestName = document.getElementById("guestName").value.trim();
+    const guestMessage = document.getElementById("guestMessage").value.trim();
+
+    const attendance = document.querySelector(
+        'input[name="attendance"]:checked'
+    );
+
+    if (!guestName) {
+        alert("Iltimos, ismingizni kiriting.");
+        return;
+    }
+
+    if (!attendance) {
+        alert("Iltimos, qatnashish holatini tanlang.");
+        return;
+    }
+
+    const button = document.querySelector(".rsvp-button");
+
+    button.disabled = true;
+    button.textContent = "Yuborilmoqda...";
+
+    try {
+        const response = await fetch("/api/rsvp", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                guestName: guestName,
+                attendance: attendance.value,
+                guestMessage: guestMessage
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Xatolik yuz berdi");
+        }
+
+        alert("Javobingiz qabul qilindi ❤️");
+
+        document.getElementById("guestName").value = "";
+        document.getElementById("guestMessage").value = "";
+
+        document.querySelectorAll(
+            'input[name="attendance"]'
+        ).forEach(input => {
+            input.checked = false;
+        });
+
+    } catch (error) {
+        console.error(error);
+        alert("Javob yuborilmadi. Iltimos, qayta urinib ko‘ring.");
+    }
+
+    button.disabled = false;
+    button.textContent = "Javob yuborish";
+}
+async function loadMessages() {
+
+    const list = document.getElementById("messagesList");
+
+    if (!list) return;
+
+    try {
+
+        const response = await fetch("/api/messages");
+
+        const messages = await response.json();
+
+        if (!messages.length) {
+
+            list.innerHTML = `
+                <div class="message-card">
+                    <div class="message-text">
+                        Hozircha tilaklar yo‘q.
+                    </div>
+                </div>
+            `;
+
+            return;
+        }
+
+        list.innerHTML = messages
+            .slice()
+            .reverse()
+            .map(item => `
+                <div class="message-card">
+
+                    <div class="message-text">
+                        “${escapeHtml(item.message || "")}”
+                    </div>
+
+                    <div class="message-name">
+                        — ${escapeHtml(item.name || "Mehmon")}
+                    </div>
+
+                </div>
+            `)
+            .join("");
+
+    } catch (error) {
+
+        console.error(
+            "Xabarlarni yuklashda xatolik:",
+            error
+        );
+
+    }
+}
+
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+loadMessages();
+</script>
+
+</body>
+</html>
